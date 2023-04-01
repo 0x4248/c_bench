@@ -7,20 +7,20 @@ This is a single and multi-threaded benchmark made in the C programming language
 
 ## ❓ Usage
 
-To compile the benchmark, run the following command:
+To compile c bench, run the following command:
 
 ```bash
 make
 ```
 
-To run the benchmark, run the following command:
+To run c bench, run the following command:
 
 ```bash
 ./c_bench
 ```
 
 ## 📜 Dependencies
-To compile the benchmark, you need to have the following dependencies installed:
+To compile c bench, you need to have the following dependencies installed:
 
 - [GCC](https://gcc.gnu.org/)
 - [GNU Make](https://www.gnu.org/software/make/)
