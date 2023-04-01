@@ -2,6 +2,9 @@
 
 This is a single and multi-threaded benchmark made in the C programming language that is easy to use.
 
+## 📺 Demo
+<img src="demo.gif" width="400px">
+
 ## ❓ Usage
 
 To compile the benchmark, run the following command:
@@ -23,4 +26,4 @@ To compile the benchmark, you need to have the following dependencies installed:
 - [GNU Make](https://www.gnu.org/software/make/)
 
 ## 📝 License
-This project is licensed under the GPL-3.0 License - see the [LICENSE][def] file for details
+This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENCE) file for details
