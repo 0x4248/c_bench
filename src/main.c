@@ -4,6 +4,11 @@
 #include <pthread.h>
 #include <unistd.h>
 
+#define YELLOW "\x1b[33m"
+#define GREEN "\x1b[32m"
+#define RESET "\x1b[0m"
+
+
 int get_cores()
 {
     return sysconf(_SC_NPROCESSORS_ONLN);
@@ -38,7 +43,7 @@ int singleCoreTest()
     end = clock();
     cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-    return (int)(cpu_time_used * 1000); // Convert to milliseconds
+    return (int)(cpu_time_used * 1000); 
 }
 
 void *dualCoreTest(void *thread_id)
@@ -69,7 +74,7 @@ int main()
     int singleCoreTime = singleCoreTest();
     pthread_cancel(spinner_thread);
     printf("\x1b[2K");
-    printf("\rSingle-core test time: %d milliseconds\n", singleCoreTime);
+    printf("\r%sFinished%s: Single-core test time: %d milliseconds\n", GREEN, RESET, singleCoreTime);
 
     pthread_t threads[num_threads];
     int thread_args[num_threads];
@@ -77,7 +82,7 @@ int main()
     clock_t start, end;
     double cpu_time_used;
 
-    printf("Starting dual-core test with %d threads\n", num_threads);
+    printf("%sStarting%s: dual-core test with %d threads\n",YELLOW, RESET, num_threads); 
     start = clock();
     pthread_create(&threads[0], NULL, spinner, (void *)"Benchmarking dual-core performance ");
     for (int i = 0; i < num_threads; i++)
@@ -97,6 +102,6 @@ int main()
     printf("\x1b[2K");
     printf("\x1b[1A");
     printf("\x1b[2K");
-    printf("\rDual-core test time: %f seconds\n", cpu_time_used);
+    printf("\r%sFinished%s: Dual-core test time: %f seconds\n", GREEN, RESET, cpu_time_used);
     return 0;
 }
