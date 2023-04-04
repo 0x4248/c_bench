@@ -35,7 +35,7 @@ void *spinner(void *message)
     }
 }
 
-int singleCoreTest()
+double singleCoreTest()
 {
     clock_t start, end;
     double cpu_time_used;
@@ -50,7 +50,7 @@ int singleCoreTest()
     end = clock();
     cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-    return (int)(cpu_time_used * 1000); 
+    return (double)(cpu_time_used); 
 }
 
 void *dualCoreTest(void *thread_id)
@@ -84,10 +84,10 @@ int main(int argc, char *argv[])
     int num_threads = get_cores() - 2;
     pthread_t spinner_thread;
     pthread_create(&spinner_thread, NULL, spinner, (void *)"Benchmarking single-core performance ");
-    int singleCoreTime = singleCoreTest();
+    double singleCoreTime = singleCoreTest();
     pthread_cancel(spinner_thread);
     printf("\x1b[2K");
-    printf("\r%sFinished%s: Single-core test time: %d milliseconds\n", GREEN, RESET, singleCoreTime);
+    printf("\r%sFinished%s: Single-core test time: %f seconds\n", GREEN, RESET, singleCoreTime);
 
     pthread_t threads[num_threads];
     int thread_args[num_threads];
