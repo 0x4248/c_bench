@@ -16,11 +16,23 @@
 
 #include "config.h"
 
+/**
+ * get_cores - A function that gets the number of cores on the system
+ * 
+ * @returns: The number of cores on the system
+*/
 int get_cores()
 {
     return sysconf(_SC_NPROCESSORS_ONLN);
 }
 
+/**
+ * spinner - A function that prints a spinner to the terminal
+ * 
+ * @message: The message to print before the spinner
+ * 
+ * @returns: void
+*/
 void *spinner(void *message)
 {
     const char *animation[] = {"-", "\\", "|", "/"};
@@ -34,7 +46,11 @@ void *spinner(void *message)
         }
     }
 }
-
+/**
+ * singleCoreTest - A function that tests the performance of the CPU
+ * 
+ * @returns: The time taken to run the test
+*/
 double singleCoreTest()
 {
     clock_t start, end;
@@ -53,28 +69,27 @@ double singleCoreTest()
     return (double)(cpu_time_used); 
 }
 
+/**
+ * dualCoreTest - A function that tests the performance of the CPU
+ * 
+ * @thread_id: The thread ID
+ * 
+ * @returns: void
+*/
 void *dualCoreTest(void *thread_id)
 {
     int id = *((int *)thread_id);
     clock_t start, end;
-    double cpu_time_used;
-
-    start = clock();
-
     int x = 0;
     for (int i = id * 500000000; i < (id + 1) * 500000000; i++)
     {
         x += i;
     }
-
-    end = clock();
-    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
     pthread_exit(NULL);
 }
 
 int main(int argc, char *argv[])
 {
-    // if -v or --version
     if (argc == 2 && (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0))
     {
         printf("C Bench v%s\n", VERSION);
