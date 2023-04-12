@@ -1,7 +1,7 @@
 /* C Bench (main.c)
  * A single and multi-threaded benchmark made in the C programming language
  * Github:https://www.github.com/awesomelewis2007/c_bench
-*/
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,14 +13,13 @@
 #define GREEN "\x1b[32m"
 #define RESET "\x1b[0m"
 
-
 #include "config.h"
 
 /**
  * get_cores - A function that gets the number of cores on the system
- * 
+ *
  * @returns: The number of cores on the system
-*/
+ */
 int get_cores()
 {
     return sysconf(_SC_NPROCESSORS_ONLN);
@@ -28,11 +27,11 @@ int get_cores()
 
 /**
  * spinner - A function that prints a spinner to the terminal
- * 
+ *
  * @message: The message to print before the spinner
- * 
+ *
  * @returns: void
-*/
+ */
 void *spinner(void *message)
 {
     const char *animation[] = {"-", "\\", "|", "/"};
@@ -48,9 +47,9 @@ void *spinner(void *message)
 }
 /**
  * singleCoreTest - A function that tests the performance of the CPU
- * 
+ *
  * @returns: The time taken to run the test
-*/
+ */
 double singleCoreTest()
 {
     clock_t start, end;
@@ -66,16 +65,16 @@ double singleCoreTest()
     end = clock();
     cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-    return (double)(cpu_time_used); 
+    return (double)(cpu_time_used);
 }
 
 /**
  * dualCoreTest - A function that tests the performance of the CPU
- * 
+ *
  * @thread_id: The thread ID
- * 
+ *
  * @returns: void
-*/
+ */
 void *dualCoreTest(void *thread_id)
 {
     int id = *((int *)thread_id);
@@ -110,7 +109,7 @@ int main(int argc, char *argv[])
     clock_t start, end;
     double cpu_time_used;
 
-    printf("%sStarting%s: dual-core test with %d threads\n",YELLOW, RESET, num_threads); 
+    printf("%sStarting%s: dual-core test with %d threads\n", YELLOW, RESET, num_threads);
     start = clock();
     pthread_create(&threads[0], NULL, spinner, (void *)"Benchmarking dual-core performance ");
     for (int i = 0; i < num_threads; i++)
