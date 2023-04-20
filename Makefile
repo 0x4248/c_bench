@@ -1,4 +1,8 @@
-# C Bench (makefile)
+# C Bench (Makefile)
+# A single and multi-threaded benchmark made in the C programming language
+# Github:https://www.github.com/awesomelewis2007/c_bench
+# License: GPL-3.0
+# By: Lewis Evans
 
 OUTPUT = bin/c_bench
 CC = gcc
