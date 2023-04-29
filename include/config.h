@@ -3,7 +3,7 @@
  * Github:https://www.github.com/awesomelewis2007/c_bench
  * Licence: GPL-3.0
  * By: Lewis Evans
-*/
+ */
 
 #ifndef CONFIG_H
 #define CONFIG_H
