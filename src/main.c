@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
         printf("  -v, --version   Show the version number\n");
         return 0;
     }
-    
+
     /* Get the number of threads available and leave two cores for system and
      * the spinner */
     int num_threads = get_cores() - 2;
