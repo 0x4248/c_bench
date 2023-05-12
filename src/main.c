@@ -85,6 +85,16 @@ int main(int argc, char *argv[]) {
         printf("C Bench v%s\n", VERSION);
         return 0;
     }
+    if (argc == 2 &&
+        (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0)) {
+        printf("Usage: c_bench [OPTION]\n");
+        printf("Benchmark your CPU\n\n");
+        printf("Options:\n");
+        printf("  -h, --help      Show this help message\n");
+        printf("  -v, --version   Show the version number\n");
+        return 0;
+    }
+    
     /* Get the number of threads available and leave two cores for system and
      * the spinner */
     int num_threads = get_cores() - 2;
