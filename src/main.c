@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
+#include <string.h>
 
 #define YELLOW "\x1b[33m"
 #define GREEN "\x1b[32m"
