@@ -1,0 +1,15 @@
+{
+    "name": "c_bench",
+    "description": "A single and multi-threaded benchmark made in the C programming language that is easy to use.",
+    "version": "",
+    "main_file": "src/main.c",
+    "author": "Lewis Evans",
+    "license": "GNU General Public License v3.0",
+    "url": "https://www.github.com/awesomelewis2007/c_bench",
+    "email": "none",
+    "languages": [
+        "c",
+        "c++"
+    ],
+    "actions": {}
+}
