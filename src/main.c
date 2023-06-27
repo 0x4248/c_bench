@@ -1,6 +1,6 @@
 /* C Bench (main.c)
  * A single and multi-threaded benchmark made in the C programming language
- * Github:https://www.github.com/awesomelewis2007/c_bench
+ * Github:https://www.github.com/lewisevans2007/c_bench
  * Licence: GNU General Public License v3.0
  * By: Lewis Evans
  */
