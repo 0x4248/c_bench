@@ -8,8 +8,8 @@ OUTPUT = bin/c_bench
 CC = gcc
 CFLAGS = -pthread
 
-SOURCES = src/main.c
-
+SRC = src
+SOURCES = $(wildcard $(SRC)/*.c)
 INCLUDE = -I include
 
 all: init build
