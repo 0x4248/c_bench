@@ -17,6 +17,7 @@
 #define RESET "\x1b[0m"
 
 #include "config.h"
+#include "spinner.h"
 
 /**
  * get_cores - A function that gets the number of cores on the system
@@ -25,23 +26,6 @@
  */
 int get_cores() { return sysconf(_SC_NPROCESSORS_ONLN); }
 
-/**
- * spinner - A function that prints a spinner to the terminal
- *
- * @message: The message to print before the spinner
- *
- * @returns: void
- */
-void *spinner(void *message) {
-    const char *animation[] = {"-", "\\", "|", "/"};
-    while (1) {
-        for (int i = 0; i < 4; i++) {
-            printf("\r%s [%s]", message, animation[i]);
-            fflush(stdout);
-            usleep(100000);
-        }
-    }
-}
 /**
  * singleCoreTest - A function that tests the performance of the CPU
  *
