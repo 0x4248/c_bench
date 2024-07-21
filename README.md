@@ -17,7 +17,7 @@ make
 To run c bench, run the following command:
 
 ```bash
-./c_bench
+./bin/c_bench
 ```
 
 ## 📜 Dependencies
