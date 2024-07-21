@@ -6,7 +6,7 @@
 
 OUTPUT = bin/c_bench
 CC = gcc
-CFLAGS = -pthread
+CFLAGS = -pthread -Wall
 
 SRC = src
 SOURCES = $(wildcard $(SRC)/*.c)
